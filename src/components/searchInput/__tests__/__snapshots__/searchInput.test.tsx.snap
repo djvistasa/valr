@@ -1,0 +1,9 @@
+// Vitest Snapshot v1
+
+exports[`does searchInput render 1`] = `
+<input
+  class="sc-gswNZR bnLElW"
+  data-testid="search-input"
+  placeholder="Search for a country..."
+/>
+`;
