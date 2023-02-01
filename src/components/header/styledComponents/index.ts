@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { calculateRem } from '../../../utils';
 
 const StyledHeader = styled.div`
+  margin-top: ${calculateRem(50)};
   margin-bottom: ${calculateRem(50)};
 
   h1 {

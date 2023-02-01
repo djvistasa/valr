@@ -52,9 +52,9 @@ const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
     background-color: ${({
       theme: {
-        colors: { secondaryBackgroundColor },
+        colors: { lightgrey },
       },
-    }) => secondaryBackgroundColor};
+    }) => lightgrey};
     color: ${({
       theme: {
         colors: { light },

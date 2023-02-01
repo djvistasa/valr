@@ -1,9 +1,10 @@
 import { useCallback, useState } from 'react';
 import { BlocksApi } from '../../api';
-import { IBlock } from '../../interfaces';
+import { IAsset, IBlock } from '../../interfaces';
 
 function useBlocks() {
   const [blocks, setBlocks] = useState<IBlock[]>([]);
+  const [assets, setAssets] = useState<IAsset[]>([]);
   const [block, setBlock] = useState<IBlock>();
 
   const getBlocksByAsset = useCallback(async (asset: string) => {
@@ -13,10 +14,25 @@ function useBlocks() {
       return alert(error);
     }
 
-    if (ok && result && result.pageProps && result.pageProps.latestBlocks) {
-      setBlocks(result.pageProps.latestBlocks);
+    if (ok && result) {
+      if (result.pageProps && result.pageProps.latestBlocks) {
+        setBlocks(result.pageProps.latestBlocks);
+      }
+
+      if (result.headerTickers) {
+        filterOutUnusedAssets(result.headerTickers);
+      }
     }
   }, []);
+
+  const filterOutUnusedAssets = (assets: IAsset[]) => {
+    const filteredAssets = assets.filter(({ ticker }) => {
+      const code = ticker.toLowerCase();
+      return code === 'btc' || code === 'eth' || code === 'bch';
+    });
+
+    setAssets(filteredAssets);
+  };
 
   const getBlockByAssetAndId = useCallback(
     async (asset: string, id: string) => {
@@ -41,6 +57,7 @@ function useBlocks() {
     getBlockByAssetAndId,
     block,
     blocks,
+    assets,
   };
 }
 

@@ -14,7 +14,6 @@ import {
   StyledHeaderInner,
 } from './styledComponents';
 import SearchInput from '../searchInput';
-import { ButtonVariant } from '../../enums';
 
 function Header({ handleBlockSearch }: IHeaderProps): JSX.Element {
   const searchInput = useRef<string>('');
@@ -37,11 +36,7 @@ function Header({ handleBlockSearch }: IHeaderProps): JSX.Element {
           onSearch={(searchValue: string) => onBlockInputValue(searchValue)}
         />
         <StyledActionsWrapper>
-          <Button
-            onClick={() => onBlockSearch()}
-            title="Search"
-            variant={ButtonVariant.PrimaryAction}
-          />
+          <Button onClick={() => onBlockSearch()} title="Search" />
         </StyledActionsWrapper>
       </StyledHeaderInner>
     </StyledHeader>

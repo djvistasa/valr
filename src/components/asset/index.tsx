@@ -18,7 +18,7 @@ import { ReactComponent as BitcoinCash } from '../../assets/svgs/bitcoin-cash.sv
 import { ReactComponent as Ethereum } from '../../assets/svgs/ethereum.svg';
 
 function Asset({
-  asset: { icon, name, price, shortName },
+  asset: { name, price, ticker },
   onClick,
 }: IAssetProps): JSX.Element {
   const iconDictionary = () => {
@@ -29,11 +29,13 @@ function Asset({
     };
   };
   return (
-    <StyledAsset onClick={() => onClick(shortName)}>
-      <StyledIconWrapper>{iconDictionary()[icon]}</StyledIconWrapper>
+    <StyledAsset onClick={() => onClick(ticker)}>
+      <StyledIconWrapper>
+        {iconDictionary()[name as keyof typeof iconDictionary]}
+      </StyledIconWrapper>
       <StyledInfoWrapper>
         <h2>{name}</h2>
-        <p>{price}</p>
+        <p>$ {price}</p>
       </StyledInfoWrapper>
     </StyledAsset>
   );

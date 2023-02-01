@@ -14,10 +14,10 @@ function Block({
 }: IBlockProps): JSX.Element {
   return (
     <StyledBlock onClick={() => onClick(height)}>
-      <td>{height}</td>
-      <td>{hash}</td>
+      <td className="highlight">{height}</td>
+      <td className="highlight">{hash}</td>
       <td>{time}</td>
-      <td>N/A</td>
+      <td className="highlight">N/A</td>
       <td>{size} bytes</td>
     </StyledBlock>
   );

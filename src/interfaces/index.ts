@@ -6,6 +6,7 @@ import { IAssetProps, IAsset } from './components/asset';
 import { ISearchInputProps } from './components/searchInput';
 import { IBlocksListProps } from './components/blocksList';
 import { IBlockProps } from './components/block';
+import { IButtonProps } from './components/button';
 
 export type {
   IBlockProps,
@@ -18,4 +19,5 @@ export type {
   IAssetProps,
   IAsset,
   ISearchInputProps,
+  IButtonProps,
 };

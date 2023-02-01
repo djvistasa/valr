@@ -1,10 +1,8 @@
-import { Assets } from '../../../enums';
-
 interface IAsset {
+  change24h: number;
   name: string;
-  icon: Assets;
-  price: string;
-  shortName: string;
+  price: number;
+  ticker: string;
 }
 
 interface IAssetProps {

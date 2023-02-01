@@ -9,15 +9,21 @@ import Header from '../../components/header';
 import { useBlocks } from '../../hooks';
 import { useEffect } from 'react';
 import BlocksList from '../../components/blocksList';
+import { useNavigate } from 'react-router';
 
 function Blocks(): JSX.Element {
-  const { blocks, getBlocksByAsset } = useBlocks();
+  const { blocks, assets, getBlocksByAsset } = useBlocks();
+
+  const navigate = useNavigate();
+
   const handleBlockSearch = (blockSearchValue: string) => {
     console.log(blockSearchValue);
   };
 
   const handleAssetClick = (asset: string) => getBlocksByAsset(asset);
-  const handleBlockClick = (blockId: number) => console.log(blockId);
+
+  const handleBlockClick = (blockId: number) =>
+    navigate({ pathname: `/block/${blockId}` });
 
   useEffect(() => {
     getBlocksByAsset('btc');
@@ -26,7 +32,7 @@ function Blocks(): JSX.Element {
   return (
     <StyledApplicationWrapper>
       <Header handleBlockSearch={handleBlockSearch} />
-      <SidePanel onAssetClick={handleAssetClick} />
+      <SidePanel onAssetClick={handleAssetClick} assets={assets} />
       <BlocksList blocks={blocks} onBlockClick={handleBlockClick} />
     </StyledApplicationWrapper>
   );
