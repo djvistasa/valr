@@ -34,6 +34,7 @@ function Header({ handleBlockSearch }: IHeaderProps): JSX.Element {
         </StyledTitleWrapper>
         <SearchInput
           onSearch={(searchValue: string) => onBlockInputValue(searchValue)}
+          onSubmit={onBlockSearch}
         />
         <StyledActionsWrapper>
           <Button onClick={() => onBlockSearch()} title="Search" />

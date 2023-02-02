@@ -1,11 +1,11 @@
 import styled from 'styled-components/macro';
 
 const StyledBlocksList = styled.div`
-  width: calc(100% - 300px);
+  width: 80%;
   float: right;
 
   table {
-    border-spacing: 30px 0;
+    border-spacing: 55px 0;
     border-collapse: separate;
 
     th {

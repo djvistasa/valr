@@ -3,7 +3,7 @@
  * SearchInput
  *
  */
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { ISearchInputProps } from '../../interfaces';
 import { ReactComponent as Search } from '../../assets/svgs/search.svg';
 import {
@@ -12,15 +12,32 @@ import {
   StyledSearchIcon,
 } from './styledComponents';
 
-function SearchInput({ onSearch }: ISearchInputProps): JSX.Element {
+function SearchInput({ onSearch, onSubmit }: ISearchInputProps): JSX.Element {
+  const textInputRef = useRef<string>('');
+
+  const handleChange = (value: string) => {
+    textInputRef.current = value;
+    onSearch(value);
+  };
+
+  useEffect(() => {
+    document.addEventListener('keyup', function (event) {
+      if (event.key === 'Enter' && textInputRef.current) {
+        onSearch(textInputRef.current);
+        onSubmit();
+      }
+    });
+  }, []);
+
   return (
     <StyledSearchInputContainer>
       <StyledSearchIcon>
         <Search />
       </StyledSearchIcon>
       <StyledSearchInput
+        ref={textInputRef}
         placeholder="Search for things like address, transaction, block"
-        onChange={(searchValue) => onSearch(searchValue.target.value)}
+        onChange={(element) => handleChange(element.target.value)}
       />
     </StyledSearchInputContainer>
   );

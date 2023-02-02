@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { calculateRem } from '../../../utils';
 
 const StyledSidePanel = styled.div`
-  width: ${calculateRem(300)};
+  width: 20%;
   height: 100vh;
   float: left;
 `;
