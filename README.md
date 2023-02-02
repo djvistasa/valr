@@ -14,7 +14,7 @@ commands to run:
 The only way I could think of to get the miners name on each block on the block list is to do the heavy processing server side. I think one would need to get a list of all users (wasnt able to find an endpoint that did that), and marry each block up to each miner using the miners address.
 
 I realized this right at the end of the project at which point it was too late to pivot to something like next.js. 
-I did manage to find an enpoint that gets uminer by their address but I ruled that out immediately cause it would have meant n amount of API calls.
+I did manage to find an endpoint that gets a miner by their address but I ruled that out immediately cause it would have meant n amount of API calls.
 
 
 # Final thoughts
