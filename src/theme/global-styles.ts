@@ -34,6 +34,15 @@ const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
   }
 
+
+  .highlight {
+    color: ${({
+      theme: {
+        colors: { skyBlue },
+      },
+    }) => `${skyBlue} !important`};
+  }
+
   a {
     cursor: pointer;
     font-weight: 300;

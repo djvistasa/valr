@@ -45,8 +45,8 @@ function useBlocks() {
         return alert(error);
       }
 
-      if (ok && result) {
-        setBlock(result);
+      if (ok && result && result.pageProps && result.pageProps.block) {
+        setBlock(result.pageProps.block);
       }
     },
     [],

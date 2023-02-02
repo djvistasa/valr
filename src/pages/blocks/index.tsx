@@ -23,7 +23,7 @@ function Blocks(): JSX.Element {
   const handleAssetClick = (asset: string) => getBlocksByAsset(asset);
 
   const handleBlockClick = (blockId: number) =>
-    navigate({ pathname: `/block/${blockId}` });
+    navigate({ pathname: `/block/btc/${blockId}` });
 
   useEffect(() => {
     getBlocksByAsset('btc');

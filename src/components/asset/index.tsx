@@ -11,27 +11,18 @@ import {
   StyledIconWrapper,
   StyledInfoWrapper,
 } from './styledComponents';
-import { Assets } from '../../enums';
-
-import { ReactComponent as Bitcoin } from '../../assets/svgs/bitcoin.svg';
-import { ReactComponent as BitcoinCash } from '../../assets/svgs/bitcoin-cash.svg';
-import { ReactComponent as Ethereum } from '../../assets/svgs/ethereum.svg';
+import { iconDictionary } from '../../utils';
 
 function Asset({
   asset: { name, price, ticker },
   onClick,
 }: IAssetProps): JSX.Element {
-  const iconDictionary = () => {
-    return {
-      [Assets.Bitcoin]: <Bitcoin />,
-      [Assets.Ethereum]: <Ethereum />,
-      [Assets.BitcoinCash]: <BitcoinCash />,
-    };
-  };
+  const Icon: React.FunctionComponent =
+    iconDictionary()[ticker.toLocaleLowerCase() as keyof typeof iconDictionary];
   return (
-    <StyledAsset onClick={() => onClick(ticker)}>
+    <StyledAsset onClick={() => onClick(ticker.toLowerCase())}>
       <StyledIconWrapper>
-        {iconDictionary()[name as keyof typeof iconDictionary]}
+        <Icon />
       </StyledIconWrapper>
       <StyledInfoWrapper>
         <h2>{name}</h2>

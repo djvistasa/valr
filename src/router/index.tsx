@@ -8,7 +8,7 @@ const router = createBrowserRouter([
     element: <Blocks />,
   },
   {
-    path: '/block/:id',
+    path: '/block/:asset/:id',
     element: <BlockDescription />,
   },
 ]);

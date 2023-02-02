@@ -4,26 +4,26 @@
  *
  */
 import { useEffect } from 'react';
-import { useNavigation, useParams } from 'react-router';
+import { useParams } from 'react-router';
+import BlockDetails from '../../components/blockDetails';
 import { useBlocks } from '../../hooks';
 import { StyledApplicationWrapper } from '../../theme/global-styles';
 
 function BlockDescription(): JSX.Element {
-  const { id } = useParams();
+  const { id, asset } = useParams();
   const { block, getBlockByAssetAndId } = useBlocks();
 
   useEffect(() => {
-    if (id) {
-      getBlockByAssetAndId('btc', id);
+    if (id && asset) {
+      getBlockByAssetAndId(asset as string, id);
     }
   }, [id]);
 
-  useEffect(() => {
-    if (block) {
-      console.log(block);
-    }
-  }, [block]);
-  return <StyledApplicationWrapper></StyledApplicationWrapper>;
+  return (
+    <StyledApplicationWrapper>
+      {block ? <BlockDetails block={block} /> : null}
+    </StyledApplicationWrapper>
+  );
 }
 
 export default BlockDescription;

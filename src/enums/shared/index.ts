@@ -1,7 +1,7 @@
 enum Assets {
-  Bitcoin = 'Bitcoin',
-  Ethereum = 'Ethereum',
-  BitcoinCash = 'BitcoinCash',
+  Bitcoin = 'btc',
+  Ethereum = 'eth',
+  BitcoinCash = 'bch',
 }
 
 export { Assets };

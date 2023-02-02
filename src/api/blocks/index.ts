@@ -12,7 +12,7 @@ export default class BlocksApi {
   static async getBlockByAssetAndId(id: string, asset: string) {
     return makeApiCall({
       method: 'get',
-      url: `${BASE_URL}/${id}.json?asset=${asset}&id=${id}`,
+      url: `${BASE_URL}/btc/${id}.json?asset=${asset}&id=${id}`,
     });
   }
 }

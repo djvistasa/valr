@@ -6,7 +6,6 @@
 
 import { IBlockProps } from '../../interfaces';
 import { StyledBlock } from './styledComponents';
-import { truncate } from '../../utils';
 
 function Block({
   block: { height, hash, time, size },
