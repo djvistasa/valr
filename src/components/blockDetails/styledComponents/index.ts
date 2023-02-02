@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import { calculateRem } from '../../../utils';
 
 const StyledBlockDetails = styled.div`
@@ -37,6 +37,7 @@ const StyledBlockHeader = styled.div`
           colors: { gray },
         },
       }) => gray};
+      margin-right: 8px;
 
       &:nth-child(3) {
         color: ${({

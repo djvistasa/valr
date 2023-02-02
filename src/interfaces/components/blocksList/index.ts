@@ -2,7 +2,7 @@ import { IBlock } from '../../shared';
 
 interface IBlocksListProps {
   blocks: IBlock[];
-  onBlockClick: (blockId: number) => void;
+  onBlockClick: (blockHash: string) => void;
 }
 
 export type { IBlocksListProps };

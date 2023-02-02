@@ -1,11 +1,11 @@
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 
 import { calculateRem } from '../../../utils';
 
 const StyledSearchInputContainer = styled.div`
   width: ${calculateRem(500)};
   height: ${calculateRem(50)};
-  border-radius: ${calculateRem(8)};
+  border-radius: ${calculateRem(3)};
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -15,6 +15,11 @@ const StyledSearchInputContainer = styled.div`
     },
   }) => lightgrey};
   padding: 0 ${calculateRem(20)};
+  border: ${({
+    theme: {
+      colors: { lightgrey },
+    },
+  }) => `1px solid ${lightgrey}`};
 `;
 
 const StyledSearchInput = styled.input`

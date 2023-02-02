@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 
 const StyledBlocksList = styled.div`
   width: calc(100% - 300px);
@@ -10,10 +10,6 @@ const StyledBlocksList = styled.div`
 
     th {
       text-align: left;
-    }
-
-    tr {
-      cursor: pointer;
     }
   }
 `;

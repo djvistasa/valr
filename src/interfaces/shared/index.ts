@@ -22,17 +22,29 @@ interface IOutput {
   spender: ISpender | null;
 }
 
+interface IInput {
+  coinbase: boolean;
+  txid: string;
+  output: number;
+  sigscript: string;
+  sequence: number;
+  pkscript: string;
+  value: number;
+  address: string;
+  witness: [];
+}
+
 interface ITransaction {
   txid: string;
   size: number;
   version: number;
   locktime: number;
   fee: number;
-  inputs: [];
+  inputs: IInput[];
   outputs: IOutput[];
   block: {};
   deleted: boolean;
-  time: number;
+  time: string;
   rbf: boolean;
   weight: number;
 }
@@ -42,7 +54,7 @@ interface IBlock {
   height: number;
   mainchain: boolean;
   previous: string;
-  time: number;
+  time: string;
   version: number;
   bits: number;
   nonce: number;
@@ -60,6 +72,11 @@ interface IBlock {
   latestBlockNumber?: number;
   transactions?: ITransaction[];
   totalTransactions?: number;
+  confirmations?: string;
+  blockReward?: number;
+  feeReward?: number;
+  transactionVolume?: number;
+  difficulty: number;
 }
 
-export type { IBlock };
+export type { IBlock, ITransaction, IInput, IOutput, ILatestBlock };

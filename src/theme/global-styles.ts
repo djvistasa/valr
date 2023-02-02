@@ -54,7 +54,6 @@ const GlobalStyles = createGlobalStyle`
 
     input, select {
     border: none;
-    border-radius: ${calculateRem(5)};
     padding: ${calculateRem(15)};
     width: 100%;
     outline: none;
@@ -66,9 +65,9 @@ const GlobalStyles = createGlobalStyle`
     }) => lightgrey};
     color: ${({
       theme: {
-        colors: { light },
+        colors: { mainBackgroundColor },
       },
-    }) => light};
+    }) => mainBackgroundColor};
     font-size: ${calculateRem(14)};
   }
 

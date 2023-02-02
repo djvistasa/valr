@@ -21,7 +21,7 @@ function BlockDescription(): JSX.Element {
 
   return (
     <StyledApplicationWrapper>
-      {block ? <BlockDetails block={block} /> : null}
+      {block ? <BlockDetails block={block} /> : <h1>Loading...</h1>}
     </StyledApplicationWrapper>
   );
 }

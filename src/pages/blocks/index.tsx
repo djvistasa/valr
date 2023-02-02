@@ -16,14 +16,14 @@ function Blocks(): JSX.Element {
 
   const navigate = useNavigate();
 
-  const handleBlockSearch = (blockSearchValue: string) => {
-    console.log(blockSearchValue);
+  const handleBlockSearch = (blockHash: string) => {
+    navigate({ pathname: `/block/btc/${blockHash}` });
   };
 
   const handleAssetClick = (asset: string) => getBlocksByAsset(asset);
 
-  const handleBlockClick = (blockId: number) =>
-    navigate({ pathname: `/block/btc/${blockId}` });
+  const handleBlockClick = (blockHash: string) =>
+    navigate({ pathname: `/block/btc/${blockHash}` });
 
   useEffect(() => {
     getBlocksByAsset('btc');
@@ -33,7 +33,9 @@ function Blocks(): JSX.Element {
     <StyledApplicationWrapper>
       <Header handleBlockSearch={handleBlockSearch} />
       <SidePanel onAssetClick={handleAssetClick} assets={assets} />
-      <BlocksList blocks={blocks} onBlockClick={handleBlockClick} />
+      {blocks.length > 0 ? (
+        <BlocksList blocks={blocks} onBlockClick={handleBlockClick} />
+      ) : null}
     </StyledApplicationWrapper>
   );
 }
