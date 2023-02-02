@@ -9,8 +9,10 @@ import { IBlockProps } from './components/block';
 import { IButtonProps } from './components/button';
 import { IBlockDetailsProps } from './components/blockDetails';
 import { ITransactionsProps } from './components/transactions';
+import { ILoaderProps } from './components/loader';
 
 export type {
+  ILoaderProps,
   ITransactionsProps,
   IBlockDetailsProps,
   IBlockProps,

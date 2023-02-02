@@ -6,6 +6,7 @@
 import { useEffect } from 'react';
 import { useParams } from 'react-router';
 import BlockDetails from '../../components/blockDetails';
+import Loader from '../../components/loader';
 import { useBlocks } from '../../hooks';
 import { StyledApplicationWrapper } from '../../theme/global-styles';
 
@@ -21,7 +22,7 @@ function BlockDescription(): JSX.Element {
 
   return (
     <StyledApplicationWrapper>
-      {block ? <BlockDetails block={block} /> : <h1>Loading...</h1>}
+      {block ? <BlockDetails block={block} /> : <Loader />}
     </StyledApplicationWrapper>
   );
 }

@@ -16,6 +16,7 @@ declare module 'styled-components' {
       blackOlive: string;
       lightgrey: string;
       skyBlue: string;
+      black80: string;
     };
     fonts: {
       spartanRegular: string;

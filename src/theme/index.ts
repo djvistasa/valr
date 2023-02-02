@@ -15,6 +15,7 @@ const theme: DefaultTheme = {
     blackOlive: '#3b3c36',
     lightgrey: '#d3d3d3',
     skyBlue: '#1e90ff',
+    black80: 'rgba(0,0,0, 0.8)',
   },
   fonts: {
     spartanRegular: 'League Spartan',
