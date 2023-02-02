@@ -18,13 +18,11 @@ import SearchInput from '../searchInput';
 function Header({ handleBlockSearch }: IHeaderProps): JSX.Element {
   const searchInput = useRef<string>('');
 
-  const onBlockInputValue = (searchValue: string) => {
-    return (searchInput.current = searchValue);
-  };
+  const onBlockInputValue = (searchValue: string) =>
+    (searchInput.current = searchValue);
 
-  const onBlockSearch = () => {
-    return handleBlockSearch(searchInput.current);
-  };
+  const onBlockSearch = () =>
+    searchInput.current && handleBlockSearch(searchInput.current);
 
   return (
     <StyledHeader>
