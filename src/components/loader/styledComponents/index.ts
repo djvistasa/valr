@@ -19,8 +19,16 @@ const StyledLoaderWrapper = styled.div`
 `;
 
 const StyledLoader = styled.div`
-  border: 16px solid #f3f3f3; /* Light grey */
-  border-top: 16px solid #3498db; /* Blue */
+  border: ${({
+    theme: {
+      colors: { lightgrey },
+    },
+  }) => `16px solid ${lightgrey}`};
+  border-top: ${({
+    theme: {
+      colors: { mainBackgroundColor },
+    },
+  }) => `16px solid ${mainBackgroundColor}`};
   border-radius: 50%;
   width: 120px;
   height: 120px;
